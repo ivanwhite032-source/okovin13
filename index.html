@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Максим Оковин — визитка</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Segoe UI', Tahoma, sans-serif;
+  background:linear-gradient(160deg,#0f1e2e 0%,#123a4a 50%,#0f1e2e 100%);
+  color:#e0f0f8; min-height:100vh; line-height:1.6;
+}
+a { color:#7fd4ff; }
+.hero { max-width:900px; margin:0 auto; padding:60px 20px 30px; text-align:center; }
+.nickname {
+  display:inline-block; background:rgba(127,212,255,.12);
+  border:1px solid rgba(127,212,255,.35); color:#7fd4ff;
+  padding:6px 18px; border-radius:30px; font-weight:600;
+  letter-spacing:1px; font-size:14px; margin-bottom:18px;
+}
+.hero h1 {
+  font-size:42px; margin-bottom:8px;
+  background:linear-gradient(90deg,#7fd4ff,#8fd0c8,#ffe0a0);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p.sub { color:#a8c0d0; font-size:18px; margin-bottom:24px; }
+.badges { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
+.badge {
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  padding:8px 16px; border-radius:12px; font-size:14px; color:#d0e0e8;
+}
+.btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:linear-gradient(90deg,#1d7db8,#2aa8c8);
+  color:#fff; text-decoration:none; font-weight:600;
+  padding:14px 28px; border-radius:14px; font-size:16px;
+  transition:transform .2s, box-shadow .2s; margin:0 6px 10px;
+}
+.btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(42,168,200,.45); }
+.btn.secondary { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); }
+main { max-width:800px; margin:0 auto; padding:20px 20px 60px; }
+section {
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  border-radius:20px; padding:30px; margin-bottom:26px;
+  opacity:0; transform:translateY(24px); transition:opacity .7s, transform .7s;
+}
+section.visible { opacity:1; transform:none; }
+h2 { font-size:24px; margin-bottom:16px; color:#7fd4ff; display:flex; align-items:center; gap:10px; }
+p { margin-bottom:10px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:16px; }
+.card {
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  border-radius:14px; padding:18px;
+}
+.card .label { font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#88a8b8; margin-bottom:6px; }
+.card .value { font-size:16px; font-weight:600; }
+table { width:100%; border-collapse:collapse; margin-top:8px; }
+td { padding:9px 4px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top; }
+td:first-child { color:#88a8b8; width:44%; }
+.socials { display:grid; grid-template-columns:1fr; gap:12px; margin-top:6px; }
+.social {
+  display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+  border-radius:14px; padding:16px 20px; color:#e0f0f8;
+  transition:transform .2s, border-color .2s;
+}
+.social:hover { transform:translateX(6px); border-color:#7fd4ff; }
+.social .icon { font-size:26px; }
+.social .sname { font-weight:700; }
+.social .sdesc { font-size:13px; color:#88a8b8; }
+.q { margin-bottom:22px; }
+.q .qq { font-weight:600; margin-bottom:10px; font-size:16px; }
+.q label {
+  display:flex; align-items:center; gap:10px; cursor:pointer;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  border-radius:10px; padding:10px 14px; margin-bottom:8px; transition:background .2s;
+}
+.q label:hover { background:rgba(127,212,255,.14); }
+.quiz-result {
+  margin-top:20px; padding:18px 22px; border-radius:14px;
+  background:rgba(127,212,255,.14); border:1px solid rgba(127,212,255,.4);
+  display:none; font-size:17px; font-weight:600;
+}
+button.quiz-btn {
+  background:linear-gradient(90deg,#1d7db8,#2aa8c8); color:#fff; border:none;
+  padding:14px 30px; border-radius:14px; font-size:16px; font-weight:600;
+  cursor:pointer; transition:transform .2s, box-shadow .2s;
+}
+button.quiz-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(42,168,200,.45); }
+footer { text-align:center; color:#88a8b8; padding:20px; font-size:14px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="nickname">wfatoffack</div>
+  <h1>Максим Оковин</h1>
+  <p class="sub">Пловец с 1 спортивным разрядом. Вичуга, Ивановская область</p>
+  <div class="badges">
+    <span class="badge">🏊 Плавание · 1 спортивный разряд</span>
+    <span class="badge">📍 Вичуга, Ивановская область</span>
+  </div>
+  <a class="btn" href="https://vk.ru/id774524230" target="_blank" rel="noopener">💬 ВКонтакте</a>
+  <a class="btn secondary" href="https://www.tiktok.com/@wfatoffack" target="_blank" rel="noopener">🎵 TikTok</a>
+</header>
+
+<main>
+  <section>
+    <h2>👋 О нём</h2>
+    <p>Максим Оковин — пловец из Вичуги, Ивановская область. Учится в школе № 13. Ходил в детский сад № 8.</p>
+  </section>
+
+  <section>
+    <h2>🏊 Спорт</h2>
+    <p>Главное увлечение — <strong>плавание</strong>. Выполнил <strong>1 спортивный разряд</strong> — это серьёзный уровень, до которого доходят не все. Тренировки, дистанции, дисциплина — всё как у настоящих спортсменов.</p>
+  </section>
+
+  <section>
+    <h2>⭐ Увлечение</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Спорт</div>
+        <div class="value">Плавание</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📍 Где он</h2>
+    <table>
+      <tr><td>Город</td><td>Вичуга</td></tr>
+      <tr><td>Регион</td><td>Ивановская область</td></tr>
+      <tr><td>Школа</td><td>№ 13</td></tr>
+      <tr><td>Детский сад</td><td>№ 8</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>🔗 Соцсети</h2>
+    <div class="socials">
+      <a class="social" href="https://vk.ru/id774524230" target="_blank" rel="noopener">
+        <span class="icon">💬</span>
+        <span><span class="sname">ВКонтакте</span><br><span class="sdesc">Личная страница — vk.ru/id774524230</span></span>
+      </a>
+      <a class="social" href="https://www.tiktok.com/@wfatoffack" target="_blank" rel="noopener">
+        <span class="icon">🎵</span>
+        <span><span class="sname">TikTok</span><br><span class="sdesc">@wfatoffack</span></span>
+      </a>
+      <a class="social" href="https://t.me/oxesoea" target="_blank" rel="noopener">
+        <span class="icon">✈️</span>
+        <span><span class="sname">Telegram</span><br><span class="sdesc">@oxesoea</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧠 Тест: насколько ты похож на Максима?</h2>
+    <p>10 вопросов про его жизнь. В конце — процент сходства 👇</p>
+    <div id="quiz"></div>
+    <button class="quiz-btn" onclick="checkQuiz()">Узнать сходство</button>
+    <div class="quiz-result" id="quizResult"></div>
+  </section>
+</main>
+
+<footer>Максим Оковин · Вичуга · 2026</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('section').forEach(s => obs.observe(s));
+
+const questions = [
+  { q: 'Как зовут этого пловца?', a: ['Максим Оковин', 'Максим Оковский', 'Никита Оковин', 'Максим Окунев'], c: 0 },
+  { q: 'Какой вид спорта он выбрал?', a: ['Бокс', 'Плавание', 'Футбол', 'Шахматы'], c: 1 },
+  { q: 'Какой у него спортивный разряд?', a: ['КМС', '2 юношеский', '1 спортивный', 'Мастер спорта'], c: 2 },
+  { q: 'Из какого он города?', a: ['Иваново', 'Шуя', 'Кинешма', 'Вичуга'], c: 3 },
+  { q: 'В какой области находится его город?', a: ['Костромская', 'Ивановская', 'Владимирская', 'Ярославская'], c: 1 },
+  { q: 'В какой школе он учится?', a: ['№ 1', '№ 5', '№ 13', '№ 21'], c: 2 },
+  { q: 'В каком садике он был?', a: ['№ 3', '№ 5', '№ 8', '№ 1'], c: 2 },
+  { q: 'Где он живёт?', a: ['В Иванове', 'В Вичуге', 'В Шуе', 'В Кинешме'], c: 1 },
+  { q: 'Какой у него TikTok?', a: ['@wfatoffack', '@wfatofack', '@wfacoffack', '@fatoffack'], c: 0 },
+  { q: 'Какой у него Telegram?', a: ['@oxesoea', '@oxesoe', '@soeaxoe', '@oxeso'], c: 0 },
+];
+
+const quizDiv = document.getElementById('quiz');
+questions.forEach((item, i) => {
+  const block = document.createElement('div');
+  block.className = 'q';
+  block.innerHTML = '<div class="qq">' + (i + 1) + '. ' + item.q + '</div>';
+  item.a.forEach((opt, j) => {
+    const lab = document.createElement('label');
+    lab.innerHTML = '<input type="radio" name="q' + i + '" value="' + j + '"> ' + opt;
+    block.appendChild(lab);
+  });
+  quizDiv.appendChild(block);
+});
+
+function checkQuiz() {
+  let score = 0;
+  let answered = 0;
+  for (let i = 0; i < questions.length; i++) {
+    const sel = document.querySelector('input[name="q' + i + '"]:checked');
+    if (sel) { answered++; if (Number(sel.value) === questions[i].c) score++; }
+  }
+  const res = document.getElementById('quizResult');
+  res.style.display = 'block';
+  if (answered < questions.length) {
+    res.textContent = 'Ответьте на все ' + questions.length + ' вопросов (отвечено: ' + answered + ')';
+    return;
+  }
+  const percent = Math.round(score / questions.length * 100);
+  let msg;
+  if (percent === 100) msg = '🏆 ' + percent + '% — вы почти Максим! Возможно, вы близнецы.';
+  else if (percent >= 70) msg = '😎 ' + percent + '% — высокий уровень сходства с Максимом!';
+  else if (percent >= 40) msg = '🙂 ' + percent + '% — кое-что у вас общее, но до Максима далеко.';
+  else msg = '🤔 ' + percent + '% — сходство минимальное. Может, записаться в бассейн?';
+  res.textContent = msg;
+}
+</script>
+</body>
+</html>
